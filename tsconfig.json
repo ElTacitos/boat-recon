@@ -1,0 +1,36 @@
+{
+    "extends": "@tsconfig/node12/tsconfig.json",
+    "compilerOptions": {
+        "allowSyntheticDefaultImports": true,
+        "baseUrl": "./",
+        "declaration": true,
+        "downlevelIteration": true,
+        "esModuleInterop": true,
+        "experimentalDecorators": true,
+        "importHelpers": true,
+        "jsx": "preserve",
+        "lib": [
+            "es2019",
+            "es2020.promise",
+            "es2020.bigint",
+            "es2020.string",
+            "dom"
+        ],
+        "moduleResolution": "node",
+        "noImplicitAny": true,
+        "outDir": "./dist",
+        "paths": { "@/*": ["src/*"] },
+        "resolveJsonModule": true,
+        "strictNullChecks": true,
+        "strictPropertyInitialization": true,
+        "types": ["webpack-env", "jest"]
+    },
+    "include": [
+        "src/**/*.ts",
+        "src/**/*.tsx",
+        "src/**/*.vue",
+        "tests/**/*.ts",
+        "tests/**/*.tsx"
+    ],
+    "exclude": ["node_modules"]
+}
