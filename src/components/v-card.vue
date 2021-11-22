@@ -1,6 +1,11 @@
 <template>
     <div @click="emit" class="v-card">
-        <svg v-if="display" viewBox="0 0 100 100" v-html="boatInfos.svg" style="width: 100%; height: 100%"/>
+        <svg
+            v-if="display"
+            viewBox="0 0 100 100"
+            v-html="boatInfos.svg"
+            style="width: 100%; height: 100%"
+        />
         <div v-else>{{ boatInfos.type }}</div>
     </div>
 </template>
@@ -10,7 +15,7 @@
     import { Component, Prop, Vue } from "vue-property-decorator";
 
     @Component({})
-    export default class App extends Vue {
+    export default class VCard extends Vue {
         @Prop({ required: true, type: Object })
         protected readonly boatInfos!: IBoat;
 
@@ -27,5 +32,9 @@
     .v-card {
         width: 100%;
         height: 100%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 </style>
