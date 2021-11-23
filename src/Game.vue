@@ -1,6 +1,6 @@
 <template>
     <div class="game">
-        <card class="title" :display="!mode" :boat-infos="title" />
+        <v-card class="title" :display="!mode" :boat-infos="title" />
         <div class="cards">
             <v-card
                 v-for="(card, i) in cards"
@@ -40,7 +40,8 @@
         protected titleId = 0;
 
         protected created(): void {
-            this.next();
+            this.getCards();
+            this.getTitle();
         }
 
         protected getTitle(): void {
@@ -82,7 +83,11 @@
 
         protected updateMode(): void {
             // eslint-disable-next-line @typescript-eslint/no-magic-numbers
-            this.mode = Math.floor(Math.random() * 2) >= 1;
+            const RES = Math.floor(Math.random() * 10);
+            console.log(RES);
+            // eslint-disable-next-line @typescript-eslint/no-magic-numbers
+            this.mode = RES >= 5;
+            console.log(this.mode);
         }
 
         private getCards(): void {
@@ -144,6 +149,26 @@
         height: 14rem !important;
         width: 16rem !important;
         font-size: 1.75rem;
+        padding: 0.1rem;
+    }
+
+    @media all and (max-width: 600px) {
+        .title {
+            width: 100%;
+            height: 8rem !important;
+            font-size: 2rem;
+        }
+
+        .cards > * {
+            border-top: solid 3px #504c44;
+            border-right: solid 3px #504c44;
+            justify-self: stretch;
+            align-self: stretch;
+
+            height: 10rem !important;
+            width: 11rem !important;
+            font-size: 1.2rem;
+        }
     }
 
     .class1 {
